@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scrolling für allgemeine Ankerlinks und CTA-Buttons
     document.querySelectorAll('a[href^="#"]:not(.dropdown-menu a):not(.project-link):not(.back-to-projects-link), .cta-button[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Verhindert den standardmäßigen Sprung des Browsers
             const targetId = this.getAttribute('href');
             let targetElement;
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     detailTriggerLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // **WICHTIG: Verhindert den standardmäßigen Sprung hier!**
             const targetId = this.dataset.target; // Verwende data-target für die ID des Detail-Elements
 
             // Alle anderen Details ausblenden
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // "Zurück zur Projektübersicht"-Links in den Details
     document.querySelectorAll('.back-to-projects-link.internal-link').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Verhindert den standardmäßigen Sprung auch hier
             const detailToClose = this.closest('.project-detail-content');
             if (detailToClose) {
                 detailToClose.classList.remove('active');
