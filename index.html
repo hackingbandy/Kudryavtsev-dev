@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ihr Name - Data Scientist</title>
+    <title>Andrey Kudryavtsev - Data Scientist</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Ihr Name</div>
+                <div class="logo">Andrey Kudryavtsev</div>
                 <ul>
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">Über mich</a></li>
-                    <li><a href="#projects">Projekte</a></li>
+                    <li class="nav-projects has-dropdown">
+                        <a href="#projects" id="projects-nav-link">Projekte</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#project1-detail" data-target="project1-detail">Projekt Titel 1</a></li>
+                            <li><a href="#project2-detail" data-target="project2-detail">Projekt Titel 2</a></li>
+                            <li><a href="#project3-detail" data-target="project3-detail">Projekt Titel 3</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -36,7 +42,7 @@
                 <h2>Über mich</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Hallo! Ich bin [Ihr Name], ein passionierter Data Scientist mit einem starken Fokus auf [Nennen Sie 2-3 Ihrer Kernkompetenzen, z.B. maschinelles Lernen, statistische Analyse, Datenvisualisierung]. Mein Ziel ist es, komplexe Datensätze zu entschlüsseln und daraus handlungsorientierte Einsichten zu gewinnen, die echten Mehrwert schaffen.</p>
+                        <p>Hallo! Ich bin Andrey Kudryavtsev, ein passionierter Data Scientist mit einem starken Fokus auf maschinelles Lernen, statistische Analyse und Datenvisualisierung. Mein Ziel ist es, komplexe Datensätze zu entschlüsseln und daraus handlungsorientierte Einsichten zu gewinnen, die echten Mehrwert schaffen.</p>
                         <p>Ich glaube an die Kraft von Daten, um schwierige Fragen zu beantworten und innovative Lösungen zu entwickeln. Mein Ansatz ist stets analytisch, detailorientiert und auf die Erzielung messbarer Ergebnisse ausgerichtet.</p>
                         <p><strong>Kernkompetenzen:</strong></p>
                         <ul>
@@ -48,7 +54,7 @@
                             <li>[Weitere relevante Skills]</li>
                         </ul>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -65,7 +71,7 @@
                                 <span>Scikit-learn</span>
                                 <span>Pandas</span>
                             </div>
-                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Details ansehen (optional)</a>
+                            <a href="#project1-detail" class="project-link" data-target="project1-detail">Details ansehen</a>
                         </div>
                     </div>
                     <div class="project-card">
@@ -77,7 +83,7 @@
                                 <span>ggplot2</span>
                                 <span>Shiny</span>
                             </div>
-                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Details ansehen (optional)</a>
+                            <a href="#project2-detail" class="project-link" data-target="project2-detail">Details ansehen</a>
                         </div>
                     </div>
                     <div class="project-card">
@@ -89,8 +95,41 @@
                                 <span>Tableau</span>
                                 <span>Data Mining</span>
                             </div>
-                            <a href="#" class="project-link" target="_blank" rel="noopener noreferrer">Details ansehen (optional)</a>
+                            <a href="#project3-detail" class="project-link" data-target="project3-detail">Details ansehen</a>
                         </div>
+                    </div>
+                </div> <div class="project-details-container" style="margin-top: 40px;">
+                    <div id="project1-detail" class="project-detail-content">
+                        <button class="close-detail-btn" aria-label="Details schließen">&times;</button>
+                        <h3>Details: Projekt Titel 1</h3>
+                        <p><strong>Ausführliche Beschreibung:</strong> Hier folgt eine detaillierte Ausführung zu Projekt Titel 1...</p>
+                        <p><strong>Verwendete Technologien und Methoden:</strong> Python, Pandas, Scikit-learn...</p>
+                        <p><strong>Herausforderungen und Lösungsansätze:</strong> ...</p>
+                        <p><strong>Ergebnisse und Impact:</strong> ...</p>
+                        <p><a href="https://github.com/hackingbandy/beispiel-projekt-1" target="_blank" rel="noopener noreferrer">Zum GitHub Repository (optional)</a></p>
+                        <a href="#projects" class="back-to-projects-link internal-link">Zurück zur Projektübersicht</a>
+                    </div>
+
+                    <div id="project2-detail" class="project-detail-content">
+                        <button class="close-detail-btn" aria-label="Details schließen">&times;</button>
+                        <h3>Details: Projekt Titel 2</h3>
+                        <p><strong>Ausführliche Beschreibung:</strong> Projekt Titel 2 befasste sich mit...</p>
+                        <p><strong>Verwendete Technologien und Methoden:</strong> R, ggplot2, Shiny...</p>
+                        <p><strong>Herausforderungen und Lösungsansätze:</strong> ...</p>
+                        <p><strong>Ergebnisse und Impact:</strong> ...</p>
+                         <p><a href="https://github.com/hackingbandy/beispiel-projekt-2" target="_blank" rel="noopener noreferrer">Zum GitHub Repository (optional)</a></p>
+                        <a href="#projects" class="back-to-projects-link internal-link">Zurück zur Projektübersicht</a>
+                    </div>
+
+                    <div id="project3-detail" class="project-detail-content">
+                        <button class="close-detail-btn" aria-label="Details schließen">&times;</button>
+                        <h3>Details: Projekt Titel 3</h3>
+                        <p><strong>Ausführliche Beschreibung:</strong> Dieses Projekt demonstrierte Vielseitigkeit durch...</p>
+                        <p><strong>Verwendete Technologien und Methoden:</strong> SQL, Tableau, Data Mining...</p>
+                        <p><strong>Herausforderungen und Lösungsansätze:</strong> ...</p>
+                        <p><strong>Ergebnisse und Impact:</strong> ...</p>
+                        <p><a href="https://github.com/hackingbandy/beispiel-projekt-3" target="_blank" rel="noopener noreferrer">Zum GitHub Repository (optional)</a></p>
+                        <a href="#projects" class="back-to-projects-link internal-link">Zurück zur Projektübersicht</a>
                     </div>
                 </div>
             </div>
@@ -101,16 +140,16 @@
                 <h2>Kontakt</h2>
                 <p>Ich freue mich darauf, von Ihnen zu hören und über spannende Datenprojekte zu sprechen.</p>
                 <div class="contact-links">
-                    <a href="IHRE_LINKEDIN_URL" target="_blank" rel="noopener noreferrer" class="contact-button">LinkedIn</a>
-                    <a href="IHRE_GITHUB_URL" target="_blank" rel="noopener noreferrer" class="contact-button">GitHub</a>
-                    </div>
+                    <a href="https://www.linkedin.com/in/andrey-a-kudryavtsev/" target="_blank" rel="noopener noreferrer" class="contact-button">LinkedIn</a>
+                    <a href="https://github.com/hackingbandy" target="_blank" rel="noopener noreferrer" class="contact-button">GitHub</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Ihr Name. Alle Rechte vorbehalten.</p>
+            <p>&copy; 2025 Andrey Kudryavtsev. Alle Rechte vorbehalten.</p>
             <p>Design inspiriert von den Prinzipien Dieter Rams'.</p>
         </div>
     </footer>
