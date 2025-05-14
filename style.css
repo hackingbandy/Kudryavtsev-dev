@@ -331,3 +331,131 @@ footer p {
         grid-template-columns: 1fr; /* Einspaltig auf kleineren Bildschirmen */
     }
 }
+
+/* Header & Navigation - Anpassungen für Dropdown */
+header nav ul li.has-dropdown {
+    position: relative; /* Für die Positionierung des Dropdowns */
+}
+
+header nav ul li.has-dropdown .dropdown-menu {
+    display: none; /* Standardmäßig versteckt */
+    position: absolute;
+    top: 100%; /* Direkt unter dem Elternelement */
+    left: 0;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 220px; /* Breite des Dropdowns anpassen */
+    z-index: 1001; /* Stellt sicher, dass es über anderen Elementen liegt */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Leichter Schatten für Tiefe */
+}
+
+header nav ul li.has-dropdown:hover .dropdown-menu,
+header nav ul li.has-dropdown.dropdown-open .dropdown-menu { /* .dropdown-open für JS-gesteuertes Öffnen */
+    display: block;
+}
+
+header nav ul li.has-dropdown .dropdown-menu li {
+    margin-left: 0; /* Standard-Margin für li im Dropdown zurücksetzen */
+}
+
+header nav ul li.has-dropdown .dropdown-menu li a {
+    display: block; /* Links füllen das li-Element aus */
+    padding: 12px 20px;
+    font-weight: 400;
+    white-space: nowrap; /* Verhindert Zeilenumbruch im Link-Text */
+}
+
+header nav ul li.has-dropdown .dropdown-menu li a:hover {
+    background-color: var(--alt-background-color);
+    color: var(--primary-color); /* Sicherstellen, dass der Hover-Text lesbar ist */
+}
+
+
+/* Projekt Details Styling */
+.project-detail-content {
+    display: none; /* Standardmäßig versteckt */
+    padding: 25px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    margin-bottom: 30px;
+    position: relative; /* Für die Positionierung des Schließen-Buttons */
+    scroll-margin-top: 100px; /* Platz für den fixierten Header beim Anspringen via ID */
+}
+
+.project-detail-content.active {
+    display: block; /* Wird durch JS gesetzt, um das Detail anzuzeigen */
+}
+
+.project-detail-content h3 {
+    margin-top: 0; /* Weniger Abstand oben für die Detail-Überschrift */
+}
+
+.close-detail-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.close-detail-btn:hover {
+    color: var(--primary-color);
+}
+
+.back-to-projects-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.back-to-projects-link:hover {
+    color: #555555;
+}
+
+/* Responsivität - Anpassung für Dropdown auf kleinen Bildschirmen (optional) */
+@media (max-width: 768px) {
+    header nav ul li.has-dropdown .dropdown-menu {
+        /* Auf Mobilgeräten könnte das Dropdown anders positioniert werden,
+           z.B. nicht absolut, sondern als Teil des normalen Flows,
+           oder die Navigationsleiste wird zu einem Burger-Menü.
+           Für dieses Beispiel belassen wir es bei der Hover-Logik,
+           die auf Touch-Geräten oft einen Klick zum Öffnen erfordert. */
+        min-width: unset; /* Erlaube dem Dropdown, schmaler zu sein */
+        width: 100%; /* Fülle die Breite des Elternelements aus */
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
+    }
+
+     header nav ul li.has-dropdown:hover .dropdown-menu {
+        position: static; /* Verhindert Überlappung im mobilen Layout */
+     }
+}
+
+/* Bestehende .fade-in.visible Klasse (aus Ihrem Original-CSS)
+   Diese ist für das Einblenden von Sektionen beim Scrollen.
+   Die neue .active Klasse ist für das Anzeigen von Projektdetails.
+   Sie sollten nicht miteinander in Konflikt stehen.
+*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.visible { /* Diese Klasse wird vom IntersectionObserver für Scroll-Animationen gesetzt */
+    opacity: 1;
+    transform: translateY(0);
+}
