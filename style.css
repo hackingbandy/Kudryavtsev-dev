@@ -1,333 +1,129 @@
-/* Globale Stile & Dieter Rams Prinzipien */
-:root {
-    --primary-color: #000000; /* Schwarz */
-    --secondary-color: #FFFFFF; /* Weiss */
-    --accent-color: #CCCCCC; /* Helles Grau für Akzente/Ränder */
-    --text-color: #333333; /* Dunkelgrau für besseren Lesekontrast auf Weiß */
-    --background-color: #FFFFFF;
-    --alt-background-color: #f8f8f8; /* Sehr helles Grau für Sektionsabgrenzung */
+/* ... (Ihr bestehendes CSS) ... */
 
-    --font-family: 'Inter', sans-serif;
-    --base-font-size: 16px;
-    --line-height: 1.6;
+/* Header & Navigation - Anpassungen für Dropdown */
+header nav ul li.has-dropdown {
+    position: relative; /* Für die Positionierung des Dropdowns */
 }
 
-body {
-    font-family: var(--font-family);
-    font-size: var(--base-font-size);
-    line-height: var(--line-height);
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.container {
-    width: 90%;
-    max-width: 1000px; /* Konsequente Breite */
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-h1, h2, h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-    font-weight: 600; /* Etwas weniger fett als Standard bold */
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5em;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 1em;
-    border-bottom: 1px solid var(--accent-color); /* Subtile Trennung */
-    padding-bottom: 0.5em;
-}
-
-h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5em;
-}
-
-p {
-    margin-bottom: 1em;
-}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover, a:focus {
-    color: #555555; /* Etwas aufgehelltes Schwarz für Hover */
-}
-
-ul {
+header nav ul li.has-dropdown .dropdown-menu {
+    display: none; /* Standardmäßig versteckt */
+    position: absolute;
+    top: 100%; /* Direkt unter dem Elternelement */
+    left: 0;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
     list-style: none;
     padding: 0;
+    margin: 0;
+    min-width: 220px; /* Breite des Dropdowns anpassen */
+    z-index: 1001; /* Stellt sicher, dass es über anderen Elementen liegt */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Leichter Schatten für Tiefe */
 }
 
-/* Header & Navigation - Unaufdringlich und klar */
-header {
-    background-color: var(--secondary-color);
-    border-bottom: 1px solid var(--accent-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
+header nav ul li.has-dropdown:hover .dropdown-menu,
+header nav ul li.has-dropdown.dropdown-open .dropdown-menu { /* .dropdown-open für JS-gesteuertes Öffnen */
+    display: block;
 }
 
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
+header nav ul li.has-dropdown .dropdown-menu li {
+    margin-left: 0; /* Standard-Margin für li im Dropdown zurücksetzen */
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-header nav ul {
-    display: flex;
-}
-
-header nav ul li {
-    margin-left: 25px;
-}
-
-header nav ul li a {
+header nav ul li.has-dropdown .dropdown-menu li a {
+    display: block; /* Links füllen das li-Element aus */
+    padding: 12px 20px;
     font-weight: 400;
-    font-size: 0.95rem;
+    white-space: nowrap; /* Verhindert Zeilenumbruch im Link-Text */
 }
 
-/* Hero Section - Innovativ durch Klarheit */
-.hero-section {
-    background-color: var(--background-color);
-    color: var(--primary-color);
-    text-align: center;
-    padding: 80px 0;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-section .subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: #555555;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 12px 25px;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px; /* Subtile Rundung */
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover, .cta-button:focus {
-    background-color: #333333;
-    color: var(--secondary-color);
-}
-
-/* Content Sections - Verständlich und ästhetisch */
-.content-section {
-    padding: 60px 0;
-}
-
-.content-section.alt-bg {
+header nav ul li.has-dropdown .dropdown-menu li a:hover {
     background-color: var(--alt-background-color);
+    color: var(--primary-color); /* Sicherstellen, dass der Hover-Text lesbar ist */
 }
 
-.about-content {
-    display: flex;
-    gap: 40px; /* Abstand zwischen Text und potentiellem Bild */
-}
 
-.about-text {
-    flex: 2; /* Text nimmt mehr Platz ein */
-}
-
-.about-text ul {
-    list-style: disc;
-    padding-left: 20px;
-}
-.about-text ul li {
-    margin-bottom: 0.5em;
-}
-
-/* .about-image {
-    flex: 1;
-    max-width: 300px;
-}
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-} */
-
-
-/* Projekte - Interaktiv und klar strukturiert */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
+/* Projekt Details Styling */
+.project-detail-content {
+    display: none; /* Standardmäßig versteckt */
+    padding: 25px;
     background-color: var(--secondary-color);
     border: 1px solid var(--accent-color);
     border-radius: 4px;
-    overflow: hidden; /* Stellt sicher, dass Inhalte innerhalb der Karte bleiben */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Für konsistente Höhen, falls Inhalte variieren */
-    flex-direction: column;
-}
-.project-card-content {
-    padding: 20px;
-    flex-grow: 1; /* Lässt den Inhalt wachsen, um die Karte auszufüllen */
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 30px;
+    position: relative; /* Für die Positionierung des Schließen-Buttons */
+    scroll-margin-top: 100px; /* Platz für den fixierten Header beim Anspringen via ID */
 }
 
-
-.project-card:hover {
-    transform: translateY(-5px); /* Subtile Interaktion */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+.project-detail-content.active {
+    display: block; /* Wird durch JS gesetzt, um das Detail anzuzeigen */
 }
 
-.project-description {
-    font-size: 0.9rem;
+.project-detail-content h3 {
+    margin-top: 0; /* Weniger Abstand oben für die Detail-Überschrift */
+}
+
+.close-detail-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.close-detail-btn:hover {
+    color: var(--primary-color);
+}
+
+.back-to-projects-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.back-to-projects-link:hover {
     color: #555555;
-    flex-grow: 1; /* Sorgt dafür, dass der Textbereich wächst */
-    margin-bottom: 15px;
 }
 
-.project-tags {
-    margin-bottom: 15px;
+/* Responsivität - Anpassung für Dropdown auf kleinen Bildschirmen (optional) */
+@media (max-width: 768px) {
+    header nav ul li.has-dropdown .dropdown-menu {
+        /* Auf Mobilgeräten könnte das Dropdown anders positioniert werden,
+           z.B. nicht absolut, sondern als Teil des normalen Flows,
+           oder die Navigationsleiste wird zu einem Burger-Menü.
+           Für dieses Beispiel belassen wir es bei der Hover-Logik,
+           die auf Touch-Geräten oft einen Klick zum Öffnen erfordert. */
+        min-width: unset; /* Erlaube dem Dropdown, schmaler zu sein */
+        width: 100%; /* Fülle die Breite des Elternelements aus */
+        box-shadow: none;
+        border-left: none;
+        border-right: none;
+    }
+
+     header nav ul li.has-dropdown:hover .dropdown-menu {
+        position: static; /* Verhindert Überlappung im mobilen Layout */
+     }
 }
 
-.project-tags span {
-    display: inline-block;
-    background-color: var(--alt-background-color);
-    color: #777;
-    padding: 4px 8px;
-    border-radius: 3px;
-    font-size: 0.75rem;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
-
-.project-link {
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-top: auto; /* Drückt den Link nach unten, wenn die Karte höher ist */
-}
-
-/* Kontakt Sektion */
-.contact-links {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.contact-button {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    padding: 12px 25px;
-    border-radius: 4px;
-    font-weight: 600;
-    margin: 0 10px;
-    min-width: 120px;
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.contact-button:hover, .contact-button:focus {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-/* Footer - Konsequent bis ins Detail */
-footer {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    text-align: center;
-    padding: 30px 0;
-    font-size: 0.85rem;
-}
-
-footer p {
-    margin-bottom: 0.5em;
-    opacity: 0.8; /* Etwas zurückgenommen */
-}
-
-/* Interaktive Elemente / JavaScript Hooks (optional) */
+/* Bestehende .fade-in.visible Klasse (aus Ihrem Original-CSS)
+   Diese ist für das Einblenden von Sektionen beim Scrollen.
+   Die neue .active Klasse ist für das Anzeigen von Projektdetails.
+   Sie sollten nicht miteinander in Konflikt stehen.
+*/
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.fade-in.visible {
+.fade-in.visible { /* Diese Klasse wird vom IntersectionObserver für Scroll-Animationen gesetzt */
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Responsivität - Gutes Design ist brauchbar auf allen Geräten */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    header nav {
-        flex-direction: column;
-        align-items: center;
-    }
-    .logo {
-        margin-bottom: 10px;
-    }
-    header nav ul {
-        margin-top: 10px;
-        padding-left: 0; /* Zentrierung der Nav-Items */
-    }
-    header nav ul li {
-        margin: 0 10px;
-    }
-
-    .hero-section {
-        padding: 60px 0;
-        min-height: auto;
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-    /* .about-image { margin-top: 20px; max-width: 100%; } */
-
-    .project-grid {
-        grid-template-columns: 1fr; /* Einspaltig auf kleineren Bildschirmen */
-    }
 }
