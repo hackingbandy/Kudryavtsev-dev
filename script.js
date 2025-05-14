@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 const targetDetailElement = document.getElementById(targetId);
                 if (targetDetailElement) {
-                    scrollToTarget(`#${targetId}`);
+                    //scrollToTarget(`#${targetId}`);
+                    scrollToTarget('#projects');
                 }
             }, 10); // Kurze Verzögerung, um sicherzustellen, dass das Element sichtbar ist
         });
