@@ -17,13 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.dropdown-menu a[data-target]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            // Hier direkt zur #projects Sektion scrollen
             scrollToTarget('#projects');
+            // Anschließend das entsprechende Detail anzeigen (optional, je nach gewünschtem Verhalten)
             const targetId = this.dataset.target;
             showProjectDetail(targetId);
-            // Scroll to the detail section after a short delay
-            setTimeout(() => {
-                scrollToTarget(`#${targetId}`);
-            }, 150); // Increased delay to ensure rendering
         });
     });
 
@@ -33,10 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const targetId = this.dataset.target;
             showProjectDetail(targetId);
-            // Scroll to the detail section after a short delay
+            // Zum Detailbereich scrollen, nachdem er sichtbar ist
             setTimeout(() => {
-                scrollToTarget(`#${targetId}`);
-            }, 150); // Increased delay to ensure rendering
+                const targetDetailElement = document.getElementById(targetId);
+                if (targetDetailElement) {
+                    //scrollToTarget(`#${targetId}`);
+                    scrollToTarget('#projects');
+                }
+            }, 10); // Kurze Verzögerung, um sicherzustellen, dass das Element sichtbar ist
         });
     });
 
